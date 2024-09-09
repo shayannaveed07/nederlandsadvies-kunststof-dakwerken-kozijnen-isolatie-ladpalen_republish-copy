@@ -18,7 +18,9 @@
       </div>
       <h4>Controleer nu of wij actief zijn in jouw regio:</h4>
       <div class="area-form">
-        <img src="../assets/Layer_1.png" class="arrow" />
+        <div>
+          <img src="../assets/Layer_1.png" class="arrow" />
+        </div>
         <input type="text" placeholder="Postcode" class="area-form-input" />
         <button class="btn btn-warning area-form-btn">Controleer</button>
         <sub class="add-form-btn-subtext">Klaar binnen 1 minuut</sub>
