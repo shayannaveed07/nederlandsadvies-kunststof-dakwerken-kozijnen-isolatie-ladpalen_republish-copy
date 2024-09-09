@@ -4,8 +4,7 @@
   </div>
 </template>
 <script>
-import HomeView from './views/HomeView.vue';
-
+import HomeView from "./views/HomeView.vue";
 
 export default {
   components: {
@@ -13,4 +12,10 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+/* @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@800&display=swap"); */
+.app {
+  font-family: "Catamaran", sans-serif;
+  font-weight: 800;
+}
+</style>
