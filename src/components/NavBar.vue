@@ -22,6 +22,9 @@ export default {
 };
 </script>
 <style scoped>
+* {
+  font-weight: 800;
+}
 .logo {
   background: #1c1829;
 }

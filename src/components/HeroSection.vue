@@ -18,8 +18,10 @@
       </div>
       <h4>Controleer nu of wij actief zijn in jouw regio:</h4>
       <div class="area-form">
+        <img src="../assets/Layer_1.png" class="arrow" />
         <input type="text" placeholder="Postcode" class="area-form-input" />
         <button class="btn btn-warning area-form-btn">Controleer</button>
+        <sub class="add-form-btn-subtext">Klaar binnen 1 minuut</sub>
       </div>
       <div class="sticker text-warning">
         <h6>
@@ -32,6 +34,9 @@
 </template>
 
 <style scoped>
+* {
+  font-weight: 800;
+}
 .hero {
   background-image: url("../assets/airco1.png");
   /* width: 1920px;
@@ -74,5 +79,18 @@
   border-radius: 50%;
   display: flex;
   align-items: center;
+}
+.add-form-btn-subtext {
+  font-size: 12px;
+  color: #fff;
+  margin-left: 2rem;
+  position: absolute;
+  bottom: -10rem;
+  left: 28rem;
+}
+.arrow {
+  position: absolute;
+  left: 2rem;
+  bottom: -9rem;
 }
 </style>
