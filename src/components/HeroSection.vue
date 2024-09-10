@@ -21,8 +21,22 @@
         <div>
           <img src="../assets/Layer_1.png" class="arrow" />
         </div>
-        <input type="text" placeholder="Postcode" class="area-form-input" />
-        <button class="btn btn-warning area-form-btn">Controleer</button>
+        <input
+          type="text"
+          placeholder="Postcode"
+          class="area-form-input"
+          v-model="postCode"
+        />
+        <a
+          href="../components/Question.vue"
+          class="btn btn-warning area-form-btn"
+          @click.prevent="checkArea"
+        >
+          Controleer
+        </a>
+        <div v-show="showQuestion">
+          <Question />
+        </div>
         <p class="add-form-btn-subtext">Klaar binnen 1 minuut</p>
       </div>
       <div class="sticker text-warning">
@@ -34,9 +48,42 @@
     </div>
   </div>
 </template>
+<!-- //script -->
+<script>
+import Question from './Question.vue';
 
+export default {
+  name: "HeroSection",
+  components: { Question },
+  data() {
+    return {
+      postCode: "",
+      showQuestion: false,
+    };
+  },
+  methods: {
+    checkArea() {
+      const dutchPostalCodeRegex = /^[1-9][0-9]{3} ?(?!SA|SD|SS)[A-Z]{2}$/i;
+      if (
+        this.postCode.length == 6 &&
+        dutchPostalCodeRegex.test(this.postCode)
+      ) {
+        this.showQuestion = true;
+        console.log("Success: Postal code is from the Netherlands");
+        this.postCode = "";
+      } else {
+        console.log("Failure: Postal code is not from the Netherlands");
+      }
+    },
+  },
+};
+</script>
+<!-- //style -->
 <style scoped>
 * {
+  font-weight: 800;
+}
+a {
   font-weight: 800;
 }
 .hero {
@@ -50,6 +97,7 @@
 }
 .hero-content {
   padding: 8rem 4rem;
+  margin-left: 3rem;
 }
 .area-form-input {
   padding: 10px;
@@ -119,6 +167,9 @@
   .hero-content h4 {
     font-size: 16px;
   }
+  .hero-content {
+    margin-left: 0;
+  }
 }
 @media (max-width: 576px) {
   .sticker {
@@ -151,6 +202,11 @@
   }
   .area-form-btn {
     padding: 3px 1rem;
+  }
+}
+@media (max-width: 335px) {
+  .hero-content {
+    font-size: 15px;
   }
 }
 </style>
