@@ -16,14 +16,14 @@
         <img src="../assets/icons.png" alt="" />
         <h4>De juiste specialisten voor gratis & vrijblijvend advies;</h4>
       </div>
-      <h4>Controleer nu of wij actief zijn in jouw regio:</h4>
-      <div class="area-form">
+      <h4 class="mb-4 mt-5">Controleer nu of wij actief zijn in jouw regio:</h4>
+      <div class="area-form position-relative">
         <div>
           <img src="../assets/Layer_1.png" class="arrow" />
         </div>
         <input type="text" placeholder="Postcode" class="area-form-input" />
         <button class="btn btn-warning area-form-btn">Controleer</button>
-        <sub class="add-form-btn-subtext">Klaar binnen 1 minuut</sub>
+        <p class="add-form-btn-subtext">Klaar binnen 1 minuut</p>
       </div>
       <div class="sticker text-warning">
         <h6>
@@ -49,7 +49,6 @@
   background-position: center;
 }
 .hero-content {
-  margin-left: 6rem;
   padding: 8rem 4rem;
 }
 .area-form-input {
@@ -87,12 +86,71 @@
   color: #fff;
   margin-left: 2rem;
   position: absolute;
-  bottom: -10rem;
-  left: 28rem;
+
+  left: 18rem;
 }
 .arrow {
   position: absolute;
-  left: 2rem;
-  bottom: -9rem;
+  left: -7rem;
+  bottom: 0;
+}
+.checkmarks {
+  line-height: 10px;
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  * {
+    font-weight: 600;
+  }
+  .checkmarks {
+    height: 2rem;
+  }
+  .sticker {
+    left: 73%;
+    top: 13rem;
+  }
+}
+@media (max-width: 1024px) {
+  .sticker {
+    left: 85%;
+  }
+}
+@media (max-width: 508px) {
+  .hero-content h4 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 576px) {
+  .sticker {
+    display: none;
+  }
+  .area-form-input {
+    display: none;
+  }
+  .area-form-btn {
+    display: none;
+  }
+  .arrow {
+    display: none;
+  }
+}
+@media (max-width: 662px) {
+  .add-form-btn-subtext {
+    display: none;
+  }
+  .area-form-input {
+    padding: 5px;
+  }
+  .area-form-btn {
+    padding: 5px 2rem;
+  }
+}
+@media (max-width: 587px) {
+  .area-form-input {
+    padding: 3px;
+  }
+  .area-form-btn {
+    padding: 3px 1rem;
+  }
 }
 </style>

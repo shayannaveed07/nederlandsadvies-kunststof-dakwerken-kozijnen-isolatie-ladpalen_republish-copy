@@ -10,13 +10,13 @@
       </div>
       <div class="col-md-3 cards text-center">
         <img src="../assets/icon-2.png" alt="" class="cards-img" />
-        <h3 class="mt-4">Stap 1</h3>
-        <p>Controleer of wij actief zijn in jouw regio</p>
+        <h3 class="mt-4">Stap 2</h3>
+        <p>Rond de woningscan af</p>
       </div>
       <div class="col-md-3 cards text-center">
         <img src="../assets/icon-3.png" alt="" class="cards-img" />
-        <h3 class="mt-4">Stap 1</h3>
-        <p>Controleer of wij actief zijn in jouw regio</p>
+        <h3 class="mt-4">Stap 3</h3>
+        <p>Onze vakmensen geven gratis en vrijblijvend, persoonlijk advies</p>
       </div>
     </div>
   </div>
@@ -39,4 +39,11 @@
 .row-container {
   margin-top: 4rem;
 }
+@media (max-width: 768px) {
+  .cards {
+    margin-bottom: 5rem;
+    width: 60%;
+  }
+}
+
 </style>

@@ -31,4 +31,15 @@
   cursor: pointer;
   margin-left: 1rem;
 }
+@media (max-width: 576px) {
+  * {
+    font-size: 20px;
+  }
+  .area-form-input {
+    width: 100%;
+  }
+  .area-form-btn {
+    margin-top: 1rem;
+  }
+}
 </style>

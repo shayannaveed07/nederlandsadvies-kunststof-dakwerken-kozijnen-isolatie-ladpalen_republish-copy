@@ -14,8 +14,7 @@ export default {
 </script>
 <style>
 /* @import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@800&display=swap"); */
-.app {
-  font-family: "Catamaran", sans-serif;
-  font-weight: 800;
+* {
+  font-family: 'Catamaran', 'sans-serif';
 }
 </style>

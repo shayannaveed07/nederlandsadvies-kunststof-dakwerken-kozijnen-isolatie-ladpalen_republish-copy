@@ -2,13 +2,11 @@
   <div class="home">
     <div class="row">
       <div
-        class="logo col-md-6 text-center text-white p-3 d-flex justify-content-center align-items-center"
+        class="logo col-sm-6 text-center text-white p-3 d-flex justify-content-center align-items-center"
       >
         <img src="../assets/logoNl.png" alt="" />
       </div>
-      <div
-        class="text col-md-6 text-center p-3 d-flex justify-content-center align-items-center flex-column"
-      >
+      <div class="text col-sm-6 text-center p-3 second-nav">
         <h5>Besparen op Airconditioning was</h5>
         <p class="text-warning sub-text-nav">nog nooit zo makkelijk!</p>
       </div>
@@ -33,5 +31,24 @@ export default {
 }
 .sub-text-nav {
   margin-left: 9rem;
+}
+@media (max-width: 768px) {
+  * {
+    font-weight: 600;
+  }
+  .logo img {
+    width: 70%;
+  }
+  .second-nav h5 {
+    font-size: 19px;
+  }
+  .second-nav p {
+    margin-left: 7rem;
+  }
+}
+@media (max-width: 576px) {
+  .second-nav {
+    display: none;
+  }
 }
 </style>
