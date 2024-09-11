@@ -27,16 +27,15 @@
           class="area-form-input"
           v-model="postCode"
         />
-        <a
-          href="../components/Question.vue"
+        <button
           class="btn btn-warning area-form-btn"
           @click.prevent="checkArea"
         >
           Controleer
-        </a>
-        <div v-show="showQuestion">
+        </button>
+        <!-- <div v-show="showQuestion">
           <Question />
-        </div>
+        </div> -->
         <p class="add-form-btn-subtext">Klaar binnen 1 minuut</p>
       </div>
       <div class="sticker text-warning">
@@ -50,31 +49,51 @@
 </template>
 <!-- //script -->
 <script>
-import Question from './Question.vue';
+// import Question from "./Question.vue";
 
 export default {
   name: "HeroSection",
-  components: { Question },
+  // components: { Question },
+  props: {
+    // postCode: {
+    //   type: String,
+    //   required: true,
+    // },
+  },
   data() {
     return {
+      // localpostCode: this.postCode,
+
       postCode: "",
-      showQuestion: false,
+      // showQuestion: false,
     };
   },
+
   methods: {
     checkArea() {
-      const dutchPostalCodeRegex = /^[1-9][0-9]{3} ?(?!SA|SD|SS)[A-Z]{2}$/i;
-      if (
-        this.postCode.length == 6 &&
-        dutchPostalCodeRegex.test(this.postCode)
-      ) {
-        this.showQuestion = true;
-        console.log("Success: Postal code is from the Netherlands");
-        this.postCode = "";
-      } else {
-        console.log("Failure: Postal code is not from the Netherlands");
-      }
+      this.$parent.handleButtonClick(this.postCode);
+      // const dutchPostalCodeRegex = /^[1-9][0-9]{3} ?(?!SA|SD|SS)[A-Z]{2}$/i;
+      // if (
+      //   this.postCode.length == 6 &&
+      //   dutchPostalCodeRegex.test(this.postCode)
+      // ) {
+      // this.showQuestion = true;
+      // console.log("Success: Postal code is from the Netherlands");
+      // this.postCode = "";
+
+      // this.openQuestionPage();
+      // window.location.href = "../components/Question.vue";
+      // }
+      // else {
+      //   console.log("Failure: Postal code is not from the Netherlands");
+      // }
     },
+    // openQuestionPage() {
+
+    //   const pageUrl = "../components/Question.vue";
+    //   window.open(pageUrl, "_blank");
+
+    // },
   },
 };
 </script>

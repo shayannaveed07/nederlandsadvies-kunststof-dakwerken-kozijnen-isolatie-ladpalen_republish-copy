@@ -23,6 +23,9 @@ export default {
 * {
   font-weight: 800;
 }
+.second-nav{
+  background-color: white;
+}
 .logo {
   background: #1c1829;
 }
