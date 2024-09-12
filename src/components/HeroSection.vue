@@ -22,6 +22,7 @@
           <img src="../assets/Layer_1.png" class="arrow" />
         </div>
         <input
+        required ="true"
           type="text"
           placeholder="Postcode"
           class="area-form-input"

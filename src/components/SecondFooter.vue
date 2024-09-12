@@ -3,3 +3,9 @@
     <h6>© Nederlandsadvies.nl | Algemene voorwaarden | Privacy policy</h6>
   </div>
 </template>
+
+<style scoped>
+* {
+  background-color: white;
+}
+</style>

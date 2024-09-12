@@ -21,30 +21,49 @@
             <h1 class="first-heading">
               Welk type airco ben je in geïnteresseerd?
             </h1>
-
-            <div class="input-radio">
-              <div class="check-item">
-                <b-form-radio value="71" class="input-box"
-                  >Vaste airco met buitenunit (split airco)
-                </b-form-radio>
-              </div>
-              <div class="check-item mt-3">
-                <b-form-radio value="72"
-                  >Vaste airco zonder buitenunit (monoblock)</b-form-radio
-                >
-              </div>
-              <div class="check-item mt-3">
-                <b-form-radio value="73" style="color: #ffcd02"
-                  >Ik wil graag advies</b-form-radio
-                >
-              </div>
+            <div class="form-check mb-2" @click="shownext">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Vaste airco met buitenunit (split airco)
+              </label>
+            </div>
+            <div class="form-check mb-2" @click="shownext">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Vaste airco zonder buitenunit (monoblock)
+              </label>
+            </div>
+            <div class="form-check" @click="shownext">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Ik wil graag advies
+              </label>
             </div>
           </div>
-          <div class="image col-md-4 position-relative">
+          <div class="map col-md-4 position-relative">
             <img
-              src="../../assets/firstQuestion.png"
+              src="../../assets/secondQuestion.png"
               class="position-absolute"
             />
+            <!-- <GoogleMapSection/> -->
           </div>
         </div>
       </div>
@@ -53,12 +72,23 @@
 </template>
 
 <script>
+// import GoogleMapSection from '../GoogleMapSection.vue';
+
 export default {
   name: "SecondQuestion",
+  components: {
+    // GoogleMapSection,
+  },
   data() {
     return {
       percentage: 67,
     };
+  },
+  methods: {
+    shownext() {
+      // this.percentage += 34;
+      this.$parent.showLastQuestion();
+    },
   },
 };
 </script>
@@ -99,7 +129,24 @@ export default {
   width: 100%;
   padding: 1rem;
 }
-.check-item input {
-  margin-right: 1rem;
+.form-check-input {
+  background: #ffcd02;
+  border: none;
+}
+.form-check-input:checked {
+  background: #ffcd02;
+  border: none;
+}
+.form-check {
+  border: 1px solid #efe5e5fc;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.map img {
+  top: -7rem;
+  left: 0.5rem;
+  height: 35.075rem;
+  border-radius: 0 10px 10px 0;
 }
 </style>

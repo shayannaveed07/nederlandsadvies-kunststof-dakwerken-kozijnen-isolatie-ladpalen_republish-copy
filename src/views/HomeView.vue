@@ -18,6 +18,7 @@ import WarmAir from "@/components/WarmAir.vue";
 import Footer from "@/components/Footer.vue";
 import SecondFooter from "@/components/SecondFooter.vue";
 import Question from "@/components/Question.vue";
+import Thankyou from "@/components/Questions.vue/Thankyou.vue";
 export default {
   name: "HomeView",
 
@@ -29,6 +30,7 @@ export default {
     Footer,
     SecondFooter,
     Question,
+    Thankyou,
   },
   data() {
     return {

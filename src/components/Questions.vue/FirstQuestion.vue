@@ -23,26 +23,28 @@
               <div class="input-field">
                 <form class="d-flex">
                   <input
+                    required
                     type="text"
                     placeholder="Postcode"
                     class="input-box"
                     v-model="postCode"
                   />
                   <input
+                    required
                     type="text"
                     placeholder="Huisnr"
                     class="input-box"
                     v-model="houseNumber"
                   />
                 </form>
-                <form>
+                <!-- <form>
                   <input
                     type="text"
                     placeholder="Straatnaam"
                     class="input-box"
                     v-model="streetNumber"
                   />
-                </form>
+                </form> -->
               </div>
               <button
                 class="btn btn-warning first-btn"
@@ -70,14 +72,14 @@ export default {
     return {
       postCode: "",
       houseNumber: "",
-      streetNumber: "",
+      // streetNumber: "",
       percentage: 34,
     };
   },
   methods: {
     shownext() {
-      this.percentage += 34;
-      this.$parent.showNextQuestions(this.postCode,this.houseNumber,this.streetNumber);
+      // this.percentage += 34;
+      this.$parent.showNextQuestions(this.postCode, this.houseNumber);
     },
   },
 };
@@ -99,7 +101,12 @@ export default {
   outline: none;
 }
 .first-btn {
-  margin-left: 14rem;
+  margin-left: 15rem;
+  margin-top: 2rem;
+  padding: 10px 4rem;
+  border-radius: 3rem;
+
+  cursor: pointer;
 }
 .card {
   padding: 7rem 5rem;
@@ -110,7 +117,7 @@ export default {
 .image img {
   top: -7rem;
   left: 3.5rem;
-  height: 30.05rem;
+  height: 29.9rem;
   border-radius: 0 10px 10px 0;
 }
 </style>
