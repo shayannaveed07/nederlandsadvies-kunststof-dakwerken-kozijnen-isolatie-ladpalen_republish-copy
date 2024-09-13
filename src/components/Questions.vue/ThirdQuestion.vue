@@ -67,7 +67,7 @@ export default {
       rooms: "",
       startLoading: false,
     };
-  },
+  },  
   methods: {
     shownext() {
       this.$router.push("/thankyou")

@@ -57,6 +57,10 @@ export default {
         console.log("Failure: Postal code is not from the Netherlands");
       }
     },
+    showHomeApp(){
+      this.showApp = true;
+      this.showQuestion = false;
+    }
   },
 };
 </script>

@@ -4,19 +4,27 @@
       <div
         class="logo col-sm-6 text-center text-white p-3 d-flex justify-content-center align-items-center"
       >
-        <img src="../assets/logoNl.png" alt="" />
+        <img src="../assets/logoNl.png" alt="" @click="showHome" />
       </div>
       <div class="text col-sm-6 text-center p-3 second-nav">
         <h5>Besparen op Airconditioning was</h5>
         <p class="text-warning sub-text-nav">nog nooit zo makkelijk!</p>
       </div>
     </div>
+   
   </div>
 </template>
 
 <script>
 export default {
   name: "NavBar",
+
+  methods:{
+    showHome() {
+      
+      this.$parent.showHomeApp()
+    }
+  }
 };
 </script>
 <style scoped>
@@ -28,6 +36,7 @@ export default {
 }
 .logo {
   background: #1c1829;
+  cursor:pointer
 }
 .home {
   overflow: hidden;
