@@ -16,12 +16,12 @@
       <div class="card mt-4">
         <div class="row">
           <div class="content col-md-8">
-            <img src="../../assets/Arrows1.png" alt="" class="mb-4" />
+            <img src="../../assets/Arrows1.png" alt="" class="mb-4 arrow" />
             <h6 class="text-warning">Vraag 3 van 3</h6>
             <h1 class="first-heading">
               In hoeveel ruimtes wil je de airconditioning installeren?
             </h1>
-            <form>
+            <form @submit.prevent="shownext">
               <input
                 required
                 type="text"
@@ -41,10 +41,10 @@
                   Ik weet niet hoeveel ruimtes
                 </label>
               </div>
+              <button class="btn btn-warning third-btn" type="submit">
+                Volgende
+              </button>
             </form>
-            <button class="btn btn-warning third-btn" @click.prevent="shownext">
-              Volgende
-            </button>
           </div>
           <div class="image col-md-4 position-relative">
             <img src="../../assets/third.png" class="position-absolute" />
@@ -52,6 +52,7 @@
         </div>
       </div>
     </div>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 
@@ -69,25 +70,29 @@ export default {
   },
   methods: {
     shownext() {
-      if (this.rooms == "") {
-        alert("Vul het aantal ruimtes in");
-        return;
-      } else {
-        this.startLoading = true;
-       this.startProgress() 
-      }
+      this.$router.push("/thankyou")
+      // if (this.rooms == "") {
+      //   alert("Vul het aantal ruimtes in");
+      //   return;
+      // } else {
+      //   this.startLoading = true;
+      //  this.startProgress()
+      // }
     },
-    startProgress(){
-      const interval = setInterval(() => {
-        this.percentage += 10;
-        if (this.percentage >= 100) {
-          clearInterval(interval);
-          this.startLoading = false;
-          this.$parent.showThankYou(); 
-        }
-      },3000)
-    }
+    // startProgress() {
+      // const interval = setInterval(() => {
+      //   this.percentage += 10;
+      //   if (this.percentage >= 100) {
+      //     clearInterval(interval);
+      //     this.startLoading = false;
+      //     this.$parent.showThankYou();
+      //   }
+      // }, 3000);
+    // },
   },
+  showprevious(){
+      this.$parent.showPreviousSection()
+    }
 };
 </script>
 
@@ -97,6 +102,9 @@ export default {
 }
 .first-heading {
   font-size: 45px;
+}
+.arrow{
+  cursor:pointer
 }
 .progress-bar {
   background: #5dba01;
@@ -113,15 +121,15 @@ export default {
   margin-top: 2rem;
 }
 .card {
-  padding: 7rem 5rem;
+  padding: 2rem 5rem;
   border-radius: 2rem;
 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
 }
 .image img {
-  top: -7rem;
-  left: -0.5rem;
-  height: 38.2rem;
+  top: -2rem;
+    left: -0.5rem;
+    height: 28.2rem;
   border-radius: 0 10px 10px 0;
   width: 126%;
 }

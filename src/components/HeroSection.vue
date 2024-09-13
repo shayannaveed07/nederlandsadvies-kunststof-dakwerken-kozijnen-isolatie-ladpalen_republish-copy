@@ -21,25 +21,39 @@
         <div>
           <img src="../assets/Layer_1.png" class="arrow" />
         </div>
-        <input
-        required ="true"
-          type="text"
-          placeholder="Postcode"
-          class="area-form-input"
-          v-model="postCode"
-        />
-        <button
-          class="btn btn-warning area-form-btn"
-          @click.prevent="checkArea"
+        <form action="" @submit.prevent="checkArea"
         >
-          Controleer
-        </button>
+          <input
+            required
+            type="text"
+            placeholder="Postcode"
+            class="area-form-input"
+            v-model="postCode"
+          />
+          <button
+            class="btn btn-warning area-form-btn"
+            type="submit"
+          >
+            Controleer
+          </button>
+        </form>
+        <div class="d-flex align-items-center postion-relative">
+          <div class="main bg-white text-black" v-show="showmain">
+            <h1 v-show="showSpinner">Loading...</h1>
+            <div
+              class="spinner-border ms-auto"
+              role="status"
+              aria-hidden="true"
+              v-show="showSpinner"
+            ></div>
+          </div>
+        </div>
         <!-- <div v-show="showQuestion">
           <Question />
         </div> -->
         <p class="add-form-btn-subtext">Klaar binnen 1 minuut</p>
       </div>
-      <div class="sticker text-warning">
+      <div class="sticker text-warning" v-show="showsticker">
         <h6>
           Bespaar tot <br />
           40% op de <br />aanschafprijs
@@ -55,24 +69,32 @@
 export default {
   name: "HeroSection",
   // components: { Question },
-  props: {
-    // postCode: {
-    //   type: String,
-    //   required: true,
-    // },
-  },
+
   data() {
     return {
       // localpostCode: this.postCode,
-
+      showmain: false,
       postCode: "",
+      showSpinner: true,
+      showsticker: false,
       // showQuestion: false,
     };
   },
 
   methods: {
     checkArea() {
-      this.$parent.handleButtonClick(this.postCode);
+      this.showSpinner = true;
+      this.showsticker = false;
+      this.showmain = true;
+      let interval = setInterval(() => {
+        this.$parent.handleButtonClick(this.postCode, this.showSpinner);
+        // let interval = setInterval(() => {
+      }, 2000);
+      // this.showSpinner = true
+      // console.log(this.showSpinner);
+      // clearInterval(interval);
+      // }, 3000);
+      // console.log(this.showSpinner,"spinner")
       // const dutchPostalCodeRegex = /^[1-9][0-9]{3} ?(?!SA|SD|SS)[A-Z]{2}$/i;
       // if (
       //   this.postCode.length == 6 &&
@@ -106,6 +128,9 @@ export default {
 a {
   font-weight: 800;
 }
+.spinner-border {
+  font-size: 7rem;
+}
 .hero {
   background-image: url("../assets/airco1.png");
   /* width: 1920px;
@@ -117,7 +142,7 @@ a {
 }
 .hero-content {
   padding: 8rem 4rem;
-  margin-left: 3rem;
+  margin-left: 5rem;
 }
 .area-form-input {
   padding: 10px;
@@ -165,6 +190,15 @@ a {
 .checkmarks {
   line-height: 10px;
   margin-bottom: 1rem;
+}
+.main {
+  position: absolute;
+  padding: 14rem 24rem;
+  left: 5rem;
+  margin-bottom: 21rem;
+  display: flex;
+  border-radius: 2rem;
+  /* display: none; */
 }
 @media (max-width: 768px) {
   * {

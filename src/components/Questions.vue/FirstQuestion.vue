@@ -17,11 +17,11 @@
         <div class="card mt-4">
           <div class="row">
             <div class="content col-md-8">
-              <img src="../../assets/Arrows1.png" alt="" class="mb-4" />
+              <img src="../../assets/Arrows1.png" alt="" class="mb-4 arrow" @click="showprevious"/>
               <h6 class="text-warning">Vraag 1 van 3</h6>
               <h1 class="first-heading">Wat is jouw adres?</h1>
               <div class="input-field">
-                <form class="d-flex">
+                <form class="d-flex" @submit.prevent="shownext" >
                   <input
                     required
                     type="text"
@@ -36,6 +36,12 @@
                     class="input-box"
                     v-model="houseNumber"
                   />
+                  <button
+                class="btn btn-warning first-btn"
+                type = "submit"
+              >
+                Volgende
+              </button>
                 </form>
                 <!-- <form>
                   <input
@@ -46,12 +52,7 @@
                   />
                 </form> -->
               </div>
-              <button
-                class="btn btn-warning first-btn"
-                @click.prevent="shownext"
-              >
-                Volgende
-              </button>
+              
             </div>
             <div class="image col-md-4 position-relative">
               <img
@@ -81,6 +82,9 @@ export default {
       // this.percentage += 34;
       this.$parent.showNextQuestions(this.postCode, this.houseNumber);
     },
+    showprevious(){
+      this.$parent.showPreviousSection()
+    }
   },
 };
 </script>
@@ -88,6 +92,9 @@ export default {
 <style scoped>
 * {
   font-weight: 800;
+}
+.arrow{
+  cursor:pointer
 }
 .first-heading {
   font-size: 45px;
@@ -101,8 +108,9 @@ export default {
   outline: none;
 }
 .first-btn {
-  margin-left: 15rem;
-  margin-top: 2rem;
+  position:absolute;
+  margin-left: 13rem;
+  margin-top: 5rem;
   padding: 10px 4rem;
   border-radius: 3rem;
 
@@ -116,8 +124,8 @@ export default {
 }
 .image img {
   top: -7rem;
-  left: 3.5rem;
-  height: 29.9rem;
+  left: 6.5rem;
+    height: 25.45rem;
   border-radius: 0 10px 10px 0;
 }
 </style>

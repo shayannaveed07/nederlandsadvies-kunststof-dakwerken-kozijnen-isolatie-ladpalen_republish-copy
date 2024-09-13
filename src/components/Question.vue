@@ -1,10 +1,10 @@
 <template>
   <div class="question-container">
     <NavBar />
-    <FirstQuestion v-show="showFirstQuestion" />
+    <FirstQuestion v-show="showFirstQuestion"   />
     <SecondQuestion v-show="showSecondQuestion" />
-    <ThirdQuestion v-show="showThirdQuestion" />
-    <Thankyou v-show="ThankYou" />
+    <ThirdQuestion v-show="showThirdQuestion"  />
+    <HomeView v-show="showApp" />
     <SecondFooter />
 
     <!-- <GoogleMapSection v-show="showSecondQuestion" /> -->
@@ -16,7 +16,8 @@ import NavBar from "./NavBar.vue";
 import FirstQuestion from "../components/Questions.vue/FirstQuestion.vue";
 import SecondQuestion from "../components/Questions.vue/SecondQuestion.vue";
 import ThirdQuestion from "./Questions.vue/ThirdQuestion.vue";
-import Thankyou from "./Questions.vue/Thankyou.vue";
+import HomeView from "@/views/HomeView.vue";
+
 import SecondFooter from "./SecondFooter.vue";
 // import GoogleMapSection from "./GoogleMapSection.vue";
 
@@ -26,7 +27,8 @@ export default {
     FirstQuestion,
     SecondQuestion,
     ThirdQuestion,
-    Thankyou,
+    HomeView,
+  
     SecondFooter,
     // GoogleMapSection,
   },
@@ -35,7 +37,9 @@ export default {
       showFirstQuestion: true,
       showSecondQuestion: false,
       showThirdQuestion: false,
-      ThankYou: false,
+      showApp:false,
+      // postCode : postCode,
+      
     };
   },
   methods: {
@@ -61,12 +65,27 @@ export default {
         this.showThirdQuestion = true;
       }
     },
-    showThankYou() {
-      if (this.showThirdQuestion === true) {
-        this.showThirdQuestion = false;
-        this.ThankYou = true;
+    showPreviousSection(){
+      if(this.showFirstQuestion === true){
+        this.showFirstQuestion = false;
+        this.showApp = true;
+        // this.$router.push("/")
       }
-    },
+      else if(this.showSecondQuestion === true){
+        this.showSecondQuestion = false;
+        this.showFirstQuestion = true;
+      }else if(this.showThirdQuestion === true){
+        this.showThirdQuestion = false;
+        this.showSecondQuestion = true;
+      }
+
+    }
+    // showThankYou() {
+    //   if (this.showThirdQuestion === true) {
+    //     this.showThirdQuestion = false;
+    //     this.ThankYou = true;
+    //   }
+    // },
   },
 };
 </script>

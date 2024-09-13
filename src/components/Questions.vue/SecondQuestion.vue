@@ -16,7 +16,7 @@
       <div class="card mt-4">
         <div class="row">
           <div class="content col-md-8">
-            <img src="../../assets/Arrows1.png" alt="" class="mb-4" />
+            <img src="../../assets/Arrows1.png" alt="" class="mb-4 arrow" />
             <h6 class="text-warning">Vraag 2 van 3</h6>
             <h1 class="first-heading">
               Welk type airco ben je in geïnteresseerd?
@@ -89,6 +89,9 @@ export default {
       // this.percentage += 34;
       this.$parent.showLastQuestion();
     },
+    showprevious(){
+      this.$parent.showPreviousSection()
+    }
   },
 };
 </script>
@@ -96,6 +99,9 @@ export default {
 <style scoped>
 * {
   font-weight: 800;
+}
+.arrow{
+  cursor:pointer
 }
 .first-heading {
   font-size: 45px;
@@ -112,7 +118,7 @@ export default {
   margin-left: 14rem;
 }
 .card {
-  padding: 7rem 5rem;
+  padding: 2rem 5rem;
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
 }
@@ -144,9 +150,9 @@ export default {
   cursor: pointer;
 }
 .map img {
-  top: -7rem;
-  left: 0.5rem;
-  height: 35.075rem;
+  top: -2rem;
+    left: 6.5rem;
+    height: 25.2rem;
   border-radius: 0 10px 10px 0;
 }
 </style>

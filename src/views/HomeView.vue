@@ -41,7 +41,7 @@ export default {
   },
   // inject:["heroSection"],
   methods: {
-    handleButtonClick(postCode) {
+    handleButtonClick(postCode, spinner) {
       const dutchPostalCodeRegex = /^[1-9][0-9]{3} ?(?!SA|SD|SS)[A-Z]{2}$/i;
 
       console.log("code", postCode);
@@ -49,6 +49,10 @@ export default {
         console.log("Success: Postal code is from the Netherlands");
         this.showApp = false;
         this.showQuestion = true;
+      // let interval = setTimeout(()=>{
+      //   return spinner = true
+      // },3000)
+        
       } else {
         console.log("Failure: Postal code is not from the Netherlands");
       }
